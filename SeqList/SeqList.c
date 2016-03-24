@@ -77,8 +77,22 @@ boolean add(List *list, uint pos, ElemType *data)
 	return TRUE;
 }
 
-boolean removeList(List *list, uint pos)
+boolean removeList(List *list, uint index)
 {
+	int i = 0;
+	if (list == NULL)
+	{
+		return FALSE;
+	}
+	if (index >= list->size - 1)
+	{
+		return FALSE;
+	}
+	for (i = index; i < list->size; i++)
+	{
+		list->data[i] = list->data[i + 1];
+	}
+	list->size--;
 	return TRUE;
 }
 

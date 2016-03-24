@@ -31,7 +31,7 @@ List *createList(uint capacity);
  */
 uint size(List *list);
 
-void *get(List *list, uint pos);
+void *get(List *list, uint index);
 
 /**
  * 线性表是否为空
@@ -41,12 +41,12 @@ boolean isEmpty(List *list);
 /**
  * 在线性表的指定位置添加数据
  */
-boolean add(List *list, uint pos, ElemType *data);
+boolean add(List *list, uint index, ElemType *data);
 
 /**
  * 在线性表的指定位置删除元素
  */
-boolean removeList(List *list, uint pos);
+boolean removeList(List *list, uint index);
 
 /**
  * 清空线性表
