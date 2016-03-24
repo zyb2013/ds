@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "SeqList.h"
+#include "../SeqList/SeqList.h"
 
 int main()
 {
