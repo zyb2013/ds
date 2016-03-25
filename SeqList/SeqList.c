@@ -18,7 +18,7 @@ List *createList(uint capacity)
 	List *list = (List *) malloc(sizeof(List));
 	list->capacity = capacity;
 	list->size = 0;
-	list->data = malloc(sizeof(void *) * capacity);
+	list->data = malloc(sizeof(ElemType) * capacity);
 	return list;
 }
 
@@ -57,22 +57,42 @@ boolean isEmpty(List *list)
 	return FALSE;
 }
 
-boolean add(List *list, uint pos, ElemType *data)
+void expandCapacity(List *list)
+{
+	int newSize = list->capacity * 2;
+	list->data = realloc(list->data, newSize * sizeof(ElemType));
+	list->capacity += newSize;
+}
+
+boolean isFull(List *list)
+{
+	if (list->size >= list->capacity)
+	{
+		return TRUE;
+	}
+	return FALSE;
+}
+
+boolean add(List *list, uint index, ElemType *data)
 {
 	int i = 0;
-	if (pos < 0 || list == NULL || data == NULL)
+	if (index < 0 || list == NULL || data == NULL)
 	{
 		return FALSE;
 	}
-	if (pos > list->size)
+	if (isFull(list))
 	{
-		pos = list->size;
+		expandCapacity(list);
 	}
-	for (i = list->size; i > pos; i--)
+	if (index > list->size)
+	{
+		index = list->size;
+	}
+	for (i = list->size; i > index; i--)
 	{
 		list->data[i] = list->data[i - 1];
 	}
-	list->data[pos] = *data;
+	list->data[index] = *data;
 	list->size++;
 	return TRUE;
 }

@@ -13,15 +13,18 @@
 void testSeqList()
 {
 	int i;
-	int a = 10;
-	int b = 20;
-	int c = 30;
-	int d = 40;
 	List *list = createList(10);
-	add(list, 0, &a);
-	add(list, 0, &b);
-	add(list, 0, &c);
-	add(list, 2, &d);
+
+	printf("capacity:%d\n", list->capacity);
+	printf("size:%d\n", list->size);
+
+	for (i = 1; i <= 15; i++)
+	{
+		add(list, 0, &i);
+	}
+
+	printf("capacity:%d\n", list->capacity);
+	printf("size:%d\n", list->size);
 
 	for (i = 0; i < size(list); i++)
 	{
@@ -35,5 +38,8 @@ void testSeqList()
 	{
 		printf("%d ", ((int *) get(list, i)));
 	}
+	printf("\n");
+	printf("capacity:%d\n", list->capacity);
+	printf("size:%d\n", list->size);
 	destroyList(list);
 }

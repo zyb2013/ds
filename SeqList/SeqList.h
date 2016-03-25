@@ -58,4 +58,14 @@ boolean clear(List *list);
  */
 boolean destroyList(List *list);
 
+/**
+ * 线性表是否已满
+ */
+static boolean isFull(List *list);
+
+/**
+ * 扩充容量
+ */
+static void expandCapacity(List *list);
+
 #endif
