@@ -5,9 +5,10 @@
  *      Author: zhuyuanbiao
  */
 
+#include "../list/SeqList.h"
+
 #include <stdlib.h>
 #include <string.h>
-#include "SeqList.h"
 
 List *createList(uint capacity)
 {

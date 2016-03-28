@@ -8,7 +8,7 @@
 #ifndef TEST_H_
 #define TEST_H_
 
-#include "../SeqList/SeqList.h"
+#include "../list/SeqList.h"
 
 void testSeqList();
 
