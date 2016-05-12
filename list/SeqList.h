@@ -1,15 +1,7 @@
 #ifndef _SEQ_LIST_H
 #define _SEQ_LIST_H
 
-typedef unsigned int uint;
-
-typedef int ElemType;
-
-typedef char boolean;
-
-#define TRUE 1
-
-#define FALSE 0
+#include "../common/common.h"
 
 typedef struct List
 {

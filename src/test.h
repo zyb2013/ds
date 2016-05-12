@@ -9,7 +9,13 @@
 #define TEST_H_
 
 #include "../list/SeqList.h"
+#include "../queue/priority_queue.h"
+#include "../stack/Stack.h"
 
 void testSeqList();
+
+void testPriorityQueue();
+
+void testStack();
 
 #endif /* TEST_H_ */

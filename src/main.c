@@ -6,10 +6,13 @@
  */
 
 #include "test.h"
+//#include "zmalloc.h"
+
+#include <stdlib.h>
 
 int main()
 {
-	testSeqList();
+	testStack();
 	return 0;
 }
 

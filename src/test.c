@@ -54,3 +54,22 @@ void testSeqList()
 	destroyList(list);
 }
 
+void testPriorityQueue()
+{
+	//priority_queue* queue = priority_queue_create();
+}
+
+void testStack()
+{
+	int a = 10, b = 20, c = 30;
+	Stack *s = createStack();
+	stack_push(s, &a);
+	stack_push(s, &b);
+	stack_push(s, &c);
+	printf("size:%d\n", stack_size(s));
+	printf("peek:%d\n", *(int *) stack_peek(s));
+	while (!stack_is_empty(s))
+	{
+		printf("%d ", *(int *) stack_pop(s));
+	}
+}
