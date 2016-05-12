@@ -6,6 +6,7 @@ Stack *stackCreate()
 {
 	Stack *s = (Stack *) malloc(sizeof(Stack));
 	s->head = NULL;
+	s->free = NULL;
 	s->size = 0;
 	return s;
 }
@@ -68,5 +69,17 @@ int stackIsEmpty(Stack *s)
 
 int stackRelease(Stack *s)
 {
+	while (!stackIsEmpty(s))
+	{
+		StackNode *current = s->head;
+		s->head = current->next;
+		if (s->free != NULL)
+		{
+			s->free(current->data);
+		}
+		s->size--;
+		free(current);
+	}
+	free(s);
 	return 1;
 }

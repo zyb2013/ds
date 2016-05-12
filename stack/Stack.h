@@ -10,6 +10,7 @@ typedef struct _Node
 typedef struct _Stack
 {
 	StackNode *head;
+	void (*free)(void *ptr);
 	int size;
 } Stack;
 

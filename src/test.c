@@ -59,10 +59,16 @@ void testPriorityQueue()
 	//priority_queue* queue = priority_queue_create();
 }
 
+void freeNode(void *data)
+{
+	free(data);
+}
+
 void digital_convert()
 {
 	int val = 100;
 	Stack *s = stackCreate();
+	s->free = freeNode;
 	while (val > 0)
 	{
 		int *remainder = (int *) malloc(sizeof(int));
@@ -74,6 +80,7 @@ void digital_convert()
 	{
 		printf("%d", *(int *) stackPop(s));
 	}
+	stackRelease(s);
 }
 
 void testStack()
@@ -85,10 +92,6 @@ void testStack()
 	stackPush(s, &c);
 	printf("size:%d\n", stackSize(s));
 	printf("peek:%d\n", *(int *) stackPeek(s));
-	while (!stackIsEmpty(s))
-	{
-		printf("%d ", *(int *) stackPop(s));
-	}
-	printf("\n");
+	stackRelease(s);
 	digital_convert();
 }
