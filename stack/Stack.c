@@ -2,7 +2,7 @@
 
 #include "Stack.h"
 
-Stack *createStack()
+Stack *stackCreate()
 {
 	Stack *s = (Stack *) malloc(sizeof(Stack));
 	s->head = NULL;
@@ -10,16 +10,16 @@ Stack *createStack()
 	return s;
 }
 
-int stack_push(Stack *s, void *data)
+int stackPush(Stack *s, void *data)
 {
-	Stack_Node *node = (Stack_Node *) malloc(sizeof(Stack_Node));
+	StackNode *node = (StackNode *) malloc(sizeof(StackNode));
 	if (node == NULL)
 	{
 		return 0;
 	}
 	node->data = data;
 	node->next = NULL;
-	if (stack_is_empty(s))
+	if (stackIsEmpty(s))
 	{
 		s->head = node;
 	}
@@ -32,14 +32,14 @@ int stack_push(Stack *s, void *data)
 	return 1;
 }
 
-void *stack_pop(Stack *s)
+void *stackPop(Stack *s)
 {
 	int data;
-	if (stack_is_empty(s))
+	if (stackIsEmpty(s))
 	{
 		return NULL;
 	}
-	Stack_Node *oldHead = s->head;
+	StackNode *oldHead = s->head;
 	s->head = oldHead->next;
 	data = oldHead->data;
 	free(oldHead);
@@ -47,21 +47,26 @@ void *stack_pop(Stack *s)
 	return data;
 }
 
-void *stack_peek(Stack *s)
+void *stackPeek(Stack *s)
 {
-	if (stack_is_empty(s))
+	if (stackIsEmpty(s))
 	{
 		return NULL;
 	}
 	return s->head->data;
 }
 
-int stack_size(Stack *s)
+int stackSize(Stack *s)
 {
 	return s->size;
 }
 
-int stack_is_empty(Stack *s)
+int stackIsEmpty(Stack *s)
 {
 	return s->size == 0;
+}
+
+int stackRelease(Stack *s)
+{
+	return 1;
 }

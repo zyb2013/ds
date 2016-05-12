@@ -5,24 +5,26 @@ typedef struct _Node
 {
 	void *data;
 	struct _Node *next;
-} Stack_Node;
+} StackNode;
 
 typedef struct _Stack
 {
-	Stack_Node *head;
+	StackNode *head;
 	int size;
 } Stack;
 
-Stack *createStack();
+Stack *stackCreate();
 
-int stack_push(Stack *s, void *data);
+int stackPush(Stack *s, void *data);
 
-void *stack_pop(Stack *s);
+void *stackPop(Stack *s);
 
-void *stack_peek(Stack *s);
+void *stackPeek(Stack *s);
 
-int stack_size(Stack *s);
+int stackSize(Stack *s);
 
-int stack_is_empty(Stack *s);
+int stackIsEmpty(Stack *s);
+
+int stackRelease(Stack *s);
 
 #endif
